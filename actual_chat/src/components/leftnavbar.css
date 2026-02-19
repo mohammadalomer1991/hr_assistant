@@ -1,0 +1,132 @@
+/* ─────────────────────────────────────────────
+   LeftNavBar.css
+   KEY FIX: height: 100%  (NOT 100vh)
+   The sidebar lives inside .body-layout which
+   already has the correct height via flex.
+   Using 100vh here would overflow the layout.
+───────────────────────────────────────────── */
+
+.left-navbar {
+  width: 260px;
+  flex-shrink: 0;       /* never squish horizontally */
+  height: 100%;         /* ✅ fill parent, not full viewport */
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f8;
+  border-right: 1px solid #e0e0e0;
+  overflow: hidden;     /* clip children; inner list scrolls */
+}
+
+/* ── Top label ── */
+.navbar-header {
+  padding: 1rem 1rem 0.25rem;
+  flex-shrink: 0;
+}
+
+.navbar-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+/* ── New Chat button ── */
+.new-chat-button {
+  flex-shrink: 0;
+  margin: 0.625rem 0.75rem 0.5rem;
+  padding: 0.625rem 1rem;
+  background: #ffffff;
+  border: 1px solid #d1d1d6;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #202124;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.new-chat-button:hover  { background: #f0f0f0; border-color: #b8b8bd; }
+.new-chat-button:active { transform: scale(0.98); }
+
+.plus-icon {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4f46e5;
+  line-height: 1;
+}
+
+/* ── Session list (scrollable) ── */
+.sessions-list {
+  flex: 1;              /* fill remaining sidebar height */
+  overflow-y: auto;
+  padding: 0.25rem 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.no-sessions {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* Scrollbar */
+.sessions-list::-webkit-scrollbar       { width: 5px; }
+.sessions-list::-webkit-scrollbar-track { background: transparent; }
+.sessions-list::-webkit-scrollbar-thumb {
+  background: #c8c8c8;
+  border-radius: 3px;
+}
+.sessions-list::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+
+/* ─────────────────────────────
+   NavBarItem styles
+   (co-located here so there's
+    one less CSS file to manage)
+───────────────────────────── */
+.navbar-item {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.13s ease;
+  padding: 1px;
+  overflow: hidden;     /* clip content to rounded corners */
+}
+
+.navbar-item:hover   { background: #ebebec; }
+.navbar-item.active  { background: #e3e3e5; }
+
+.navbar-item-content {
+  padding: 9px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.navbar-item-title {
+  font-size: 0.875rem;
+  color: #202124;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+  display: block;
+}
+
+.navbar-item.active .navbar-item-title {
+  font-weight: 600;
+  color: #111827;
+}
+
+.navbar-item-timestamp {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  line-height: 1.2;
+}
