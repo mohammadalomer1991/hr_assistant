@@ -1,0 +1,95 @@
+@use '../../styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.5s 0.15s ease both;
+}
+
+.disclaimer {
+  font-size: 13px;
+  color: $gray-700;
+  line-height: 1.6;
+
+  a {
+    color: $link-blue;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 13px 20px;
+  border: 1.5px solid $gray-200;
+  border-radius: $radius-md;
+  background: $white;
+  font-size: 15px;
+  font-weight: 600;
+  color: $gray-900;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast,
+    background $transition-fast;
+  cursor: pointer;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    border-color: $gray-400;
+    box-shadow: $shadow-card;
+    background: $gray-50;
+  }
+
+  &:active {
+    background: $gray-100;
+  }
+}
+
+.facebookBtn {
+  // slight facebook-brand tint on hover
+  &:hover {
+    border-color: rgba(24, 119, 242, 0.4);
+  }
+}
+
+.emailLink {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: $gray-700;
+  padding: 4px 0;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $quora-red;
+    text-decoration: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+
+.header {
+  text-align: center;
+  padding: 48px 16px 32px;
+  animation: fadeDown 0.5s ease both;
+}
+
+.logo {
+  font-family: $font-display;
+  font-size: clamp(52px, 8vw, 80px);
+  font-weight: 700;
+  color: $quora-red;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 16px;
+
+  // Subtle text shadow for depth
+  text-shadow: 0 2px 8px rgba($quora-red, 0.2);
+}
+
+.tagline {
+  font-family: $font-body;
+  font-size: 17px;
+  font-weight: 400;
+  color: $gray-700;
+  letter-spacing: 0.01em;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,35 @@
+@use '../../styles/variables' as *;
+
+.horizontal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $gray-200;
+  }
+}
+
+.label {
+  font-size: 12px;
+  color: $gray-400;
+  white-space: nowrap;
+}
+
+.vertical {
+  width: 1px;
+  background: $gray-200;
+  align-self: stretch;
+  flex-shrink: 0;
+
+  // Responsive: becomes horizontal on small screens
+  @media (max-width: 720px) {
+    width: 100%;
+    height: 1px;
+  }
+}

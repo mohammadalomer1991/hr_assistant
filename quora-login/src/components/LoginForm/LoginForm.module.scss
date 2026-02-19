@@ -1,0 +1,130 @@
+@use '../../styles/variables' as *;
+
+.container {
+  animation: fadeIn 0.5s 0.25s ease both;
+}
+
+.title {
+  font-family: $font-body;
+  font-size: 22px;
+  font-weight: 700;
+  color: $gray-900;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+
+  // Decorative accent line under title
+  &::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: $quora-red;
+    border-radius: $radius-pill;
+    margin-top: 8px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 700;
+  color: $gray-900;
+  letter-spacing: 0.01em;
+}
+
+.input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid $gray-200;
+  border-radius: $radius-md;
+  font-size: 15px;
+  color: $gray-900;
+  background: $white;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast;
+  outline: none;
+
+  &::placeholder {
+    color: $gray-400;
+  }
+
+  &:hover {
+    border-color: $gray-400;
+  }
+
+  &:focus {
+    border-color: $quora-red;
+    box-shadow: $shadow-focus;
+  }
+}
+
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.forgotLink {
+  font-size: 13px;
+  color: $gray-500;
+  white-space: nowrap;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $quora-red;
+    text-decoration: none;
+  }
+}
+
+.submitBtn {
+  padding: 11px 32px;
+  background: $quora-red;
+  color: $white;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: $radius-pill;
+  letter-spacing: 0.02em;
+  transition:
+    background $transition-fast,
+    transform $transition-fast,
+    box-shadow $transition-fast;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background: $quora-red-dark;
+    box-shadow: 0 4px 14px rgba($quora-red, 0.35);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    background: $quora-red-dark;
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

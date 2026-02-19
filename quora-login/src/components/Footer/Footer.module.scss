@@ -1,0 +1,59 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 0;
+  padding: 24px 16px 32px;
+  animation: fadeIn 0.5s 0.4s ease both;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  font-size: 12px;
+  color: $gray-500;
+  padding: 2px 6px;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $gray-900;
+    text-decoration: none;
+  }
+
+  // Separator dots between links
+  &:not(:last-child)::after {
+    content: '·';
+    margin-left: 6px;
+    color: $gray-400;
+    pointer-events: none;
+  }
+}
+
+.copyright {
+  font-size: 12px;
+  color: $gray-500;
+  padding: 2px 6px;
+
+  &::before {
+    content: '·';
+    margin-right: 6px;
+    color: $gray-400;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
